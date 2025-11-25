@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: spring-security-jwt-refresh-rotation
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring-security-jwt-refresh-rotation?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: root
+    password: admin123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+jwt:
+  access:
+    ttl: 30m
+    secret: "access_token_key_that_should_not_be_upload_on_github_and_must_be_32chars_minimum_required"
+  refresh:
+    ttl: 14d
+    secret: "refresh_token_key_that_should_not_be_upload_on_github_and_must_be_32chars_minimum_required"
+
+
+logging:
+  level:
+    root: INFO
+    com.example.learnspringsecurity: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    io.jsonwebtoken: DEBUG
